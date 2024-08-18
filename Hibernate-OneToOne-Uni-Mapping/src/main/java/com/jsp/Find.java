@@ -21,6 +21,7 @@ public class Find {
 			//mapped girl object fetch
 			Girl g1=b1.getGirl(); //either null or Girl object
 			if(g1!=null) {
+				System.out.println("Girl detail =>");
 				System.out.println(g1.getId()+" | "+g1.getName()+" | "+g1.getInstaId());
 			}else {
 				System.out.println("Girl record not found");
