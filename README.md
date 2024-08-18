@@ -18,3 +18,6 @@ Please ensure you update the `persistence.xml` file in each project with your ac
 2. Set up your database using the credentials mentioned above
 3. Update the database configuration in each project as needed
 4. Run the examples using your preferred IDE or build tool
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
