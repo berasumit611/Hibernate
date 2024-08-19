@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class Delete {
+public class DeleteAll {
 	public static void main(String[] args) {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("sumit");
 		EntityManager em=emf.createEntityManager();
@@ -20,7 +20,7 @@ public class Delete {
 				
 				//iterate over list
 				for(Girl r:listOfGirls) {
-					if(r.getId()==7) {
+					if(r.getId()==1) {
 						listOfGirls.remove(r);
 						b.setGirls(listOfGirls);
 						et.begin();

@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class Delete {
+public class InsertExsisting  {
 	public static void main(String[] args) {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("sumit");
 		EntityManager em=emf.createEntityManager();
@@ -15,24 +15,24 @@ public class Delete {
 		
 		Boy b=em.find(Boy.class, 102);
 		if(b!=null) {
+			//create new girl object
+			Girl g=new Girl();
+			g.setId(9);
+			g.setName("Preeti");
+			g.setInstaId("preeti@123");
+			
+			//existing list of girl object
 			List<Girl> listOfGirls=b.getGirls();
-			if(listOfGirls!=null && !listOfGirls.isEmpty()) {
-				
-				//iterate over list
-				for(Girl r:listOfGirls) {
-					if(r.getId()==7) {
-						listOfGirls.remove(r);
-						b.setGirls(listOfGirls);
-						et.begin();
-							em.remove(r);
-						et.commit();
-						System.out.println("Girl record removed successfully");
-					}
-				}
-				
-			}else {
-				System.out.println("Girl record not found");
-			}
+			listOfGirls.add(g);
+			
+			//modified list mapping
+			b.setGirls(listOfGirls);
+			
+			et.begin();
+			em.persist(b);
+			em.persist(g);
+			et.commit();
+			System.out.println("Records inserted successfully ✅");
 		}else {
 			System.out.println("Boy record not found");
 		}
