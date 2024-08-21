@@ -1,5 +1,6 @@
 package com.jsp;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,18 +16,22 @@ public class Delete {
 		
 		Boy b=em.find(Boy.class, 102);
 		if(b!=null) {
-			List<Girl> listOfGirls=b.getGirls();
+			List<Girl> listOfGirls=b.getGirls();//null or List return
+			//validation
 			if(listOfGirls!=null && !listOfGirls.isEmpty()) {
 				
-				//iterate over list
-				for(Girl r:listOfGirls) {
-					if(r.getId()==7) {
-						listOfGirls.remove(r);
-						b.setGirls(listOfGirls);
+				//delete
+				Iterator<Girl> i=listOfGirls.iterator();//convert Collection into Iterator
+				while(i.hasNext()) {
+					Girl g=i.next();//fetch each record
+					if(g.getId()==15) {
+						i.remove();//remove object
+						
+						//delete from database
 						et.begin();
-							em.remove(r);
+						em.remove(g);
 						et.commit();
-						System.out.println("Girl record removed successfully");
+						System.out.println("Record deleted..");
 					}
 				}
 				
