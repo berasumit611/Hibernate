@@ -22,7 +22,7 @@ public static void main(String[] args) {
 			//iterate over list
 			for(Girl r:listOfGirls) {
 				if(r.getId()==2) {
-					r.setInstaId("updated instId");
+					r.setInstaId("updated@123");
 					et.begin();
 					em.merge(r);
 					et.commit();

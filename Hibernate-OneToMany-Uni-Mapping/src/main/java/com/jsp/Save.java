@@ -32,16 +32,16 @@ public class Save {
 		//Girl object
 		Girl g1=new Girl();
 		g1.setId(1);
-		g1.setName("Anwesha");
-		g1.setInstaId("Anwesha@123");
+		g1.setName("Girl1");
+		g1.setInstaId("Girl1@123");
 		Girl g2=new Girl();
 		g2.setId(2);
-		g2.setName("Priyotoma");
-		g2.setInstaId("Priyotoma@123");
+		g2.setName("Girl2");
+		g2.setInstaId("Girl2@123");
 		Girl g3=new Girl();
 		g3.setId(3);
-		g3.setName("Megha");
-		g3.setInstaId("Megha@123");
+		g3.setName("Girl3");
+		g3.setInstaId("Girl3@123");
 		
 		//List of Girl object
 		List<Girl> al=new ArrayList<Girl>();

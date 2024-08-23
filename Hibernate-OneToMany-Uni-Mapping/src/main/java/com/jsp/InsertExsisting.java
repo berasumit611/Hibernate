@@ -1,5 +1,5 @@
 package com.jsp;
-
+//INSERT NEW GIRL OBJECT TO A EXSISTING LIST
 import java.util.ArrayList;
 import java.util.List;
 
