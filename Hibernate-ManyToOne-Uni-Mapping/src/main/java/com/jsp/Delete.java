@@ -19,19 +19,32 @@ public static void main(String[] args) {
 	
 	List<Boy> listOfBoys=q.getResultList();//fetch list of Boy objects
 	
-	if(!listOfBoys.isEmpty()) {
+	if(!listOfBoys.isEmpty()) 
+	{
 		
-		Girl g=null; 
+		Girl g=null; //CREATE A VARIABLE
 		
+		//FIRST --> DE-REFERENCE GIRL OBJECT FROM BOY
 		for(Boy b:listOfBoys) {
-			if(b.getGirl().getId()==2) {
+			if(b.getGirl().getId()==1) {
 				g=b.getGirl();
 				b.setGirl(null);
 			}
 		}
 		
+		//SECOND --> SAVE IN DATABASE
+		if(g!=null)
+		{
+			et.begin();
+				em.remove(g);
+			et.commit();
+			System.out.println("RECORD REMOVED");
+		}else {
+			System.out.println("GIRL RECORD NOT FOUND");
+		}
+		
 	}else {
-		System.out.println("Boy record not found");
+		System.out.println("bOY RECORD NOT FOUND");
 	}
 }
 }
